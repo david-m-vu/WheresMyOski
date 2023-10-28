@@ -12,22 +12,25 @@ const Stack = createStackNavigator();
 const App = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: "#f4511e",
+                    },
+                    headerTintColor: "#fff",
+                    headerTitleStyle: {
+                        fontWeight: "bold",
+                    },
+                }}
+            >
                 <Stack.Screen
                     name="Home"
                     options={({ navigation, route }) => ({
                         title: "Home",
-                        headerStyle: {
-                            backgroundColor: "#f4511e",
-                        },
-                        headerTintColor: "#fff",
-                        headerTitleStyle: {
-                            fontWeight: "bold",
-                        },
                         headerRight: () => (
                             <TouchableOpacity
                                 onPress={() => {
-                                    navigation.navigate("Profile")
+                                    navigation.navigate("Profile");
                                 }}
                                 style={{ marginRight: 10 }}
                             >
@@ -39,20 +42,12 @@ const App = () => {
                             </TouchableOpacity>
                         ),
                     })}
-                    
                     component={HomePage}
                 />
                 <Stack.Screen
                     name="Profile"
                     options={({ navigation, route }) => ({
                         title: "Profile",
-                        headerStyle: {
-                            backgroundColor: "#f4511e",
-                        },
-                        headerTintColor: "#fff",
-                        headerTitleStyle: {
-                            fontWeight: "bold",
-                        },
                     })}
                     component={ProfileScreen}
                 />
