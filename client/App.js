@@ -12,6 +12,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 import baseStyles from "./styles/baseStyles.js";
 
+
 const Stack = createStackNavigator();
 const windowHeight = Dimensions.get("window").height;
 
