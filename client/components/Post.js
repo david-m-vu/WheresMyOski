@@ -39,16 +39,16 @@ const Post = (props) => {
                         />
                         <Text style={styles.userName}>{props.userName}</Text>
                     </View>
-                    <Text style={styles.postText2}>{props.location}</Text>
+                    <Text style={styles.subText}>{props.location}</Text>
                 </View>
                 <View style={styles.dateTime}>
-                    <Text style={styles.postText}>{props.time}</Text>
-                    <Text style={styles.postText2}>{props.date}</Text>
+                    <Text style={styles.timeText}>{props.time}</Text>
+                    <Text style={styles.subText}>{props.date}</Text>
                 </View>
             </View>
             <Image style={styles.postImage} source={{ uri: props.imageURI }} />
             <View style={styles.userInteractables}>
-                <Text style={styles.postText}>Is this Oski?</Text>
+                <Text style={styles.questionText}>Is this Oski?</Text>
                 <View style={styles.voteButtons}>
                     <Text
                         style={determineVoteColor()}
@@ -126,11 +126,14 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 500,
     },
-    postText: {
+    timeText: {
         fontSize: 24,
         fontFamily: "Inter_900Black",
     },
-    postText2: {
+    questionText: {
+        fontSize: 24,
+    },
+    subText: {
         fontSize: 20,
         color: "#4d4d4d",
     },
