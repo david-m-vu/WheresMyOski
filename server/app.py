@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from firebase import firebase
 import requests  
 import json 
-import auth
 
 app = Flask(__name__)
 firebase = firebase.FirebaseApplication('https://oskiproject-7240e-default-rtdb.firebaseio.com/', None)
@@ -10,7 +9,7 @@ sign_up_url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?'
 sign_in_url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?'
 
 with open('config.json', 'r') as configfile:
-    config_data = json.load(config_file)
+    config_data = json.load(configfile)
 
 @app.route("/")
 def home():
@@ -29,17 +28,12 @@ def submit():
   else:
     return "Sorry, there was an error."
 
-@app.route("/")
-def home():
-  result = firebase.get('/restaraunt', None)
-  return str(result)
-
 @app.route("/signup", methods = ["GET", "POST"])
 def user_authentication():
     if request.method == "POST":
         userdata = dict(request.form)
         payload = {
-            "key": configdata['apiKey'],
+            "key": config_data['apiKey'],
             "email": userdata['email'],
             "password": userdata['password'],
             "returnSecureToken": True 
@@ -56,7 +50,7 @@ def user_signin():
    if request.method == "POST":
         userdata = dict(request.form)
         payload = {
-            "key": configdata['apiKey'],
+            "key": config_data['apiKey'],
             "email": userdata['email'],
             "password": userdata['password'],
             "returnSecureToken": True 
