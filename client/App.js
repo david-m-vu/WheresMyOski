@@ -8,6 +8,7 @@ import {Dimensions} from 'react-native';
 
 import { Ionicons } from "@expo/vector-icons";
 
+
 const Stack = createStackNavigator();
 const windowHeight = Dimensions.get('window').height;
 
