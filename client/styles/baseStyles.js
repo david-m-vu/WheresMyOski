@@ -5,12 +5,15 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#E4DCCF",
         alignItems: "center",
-        justifyContent: "center",
     },
     text: {
         color: "white",
         fontSize: 20
     },
+    headerText: {
+        fontSize: 20,
+        fontWeight: "bold"
+    }
 });
 
 export default styles;
