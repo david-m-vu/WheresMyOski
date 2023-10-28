@@ -4,17 +4,23 @@ import { Text, View, Image } from "react-native";
 import { StyleSheet } from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
-import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
-
 
 const Post = (props) => {
-    let [fontsLoaded, fontError] = useFonts({
-        Inter_900Black,
-      });
+    const [fontsLoaded, fontError] = useFonts({
+        'Indie Flower': require('../assets/fonts/IndieFlower-Regular.ttf'),
+        'Fuzzy Bubbles Bold': require('../assets/fonts/FuzzyBubbles-Bold.ttf'),
+        'Fuzzy Bubbles Regular': require('../assets/fonts/FuzzyBubbles-Regular.ttf')
+    });
 
-      if (!fontsLoaded && !fontError) {
+    const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+        await SplashScreen.hideAsync();
+    }
+    }, [fontsLoaded, fontError]);
+
+    if (!fontsLoaded && !fontError) {
         return null;
-      }
+    }
 
     const calculateVotePercentage = () => {
         return (props.upVotes / (props.downVotes + props.upVotes)) * 100;
@@ -128,7 +134,7 @@ const styles = StyleSheet.create({
     },
     timeText: {
         fontSize: 24,
-        fontFamily: "Inter_900Black",
+        fontFamily: "Fuzzy Bubbles Bold",
     },
     questionText: {
         fontSize: 24,

@@ -8,10 +8,8 @@ import LeaderboardScreen from "./screens/Leaderboard/LeaderboardScreen.js"
 import { Dimensions } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
-
+import SettingsScreen from "./screens/Profile/SettingsScreen.js";
 import baseStyles from "./styles/baseStyles.js";
-
 
 const Stack = createStackNavigator();
 const windowHeight = Dimensions.get("window").height;
@@ -25,8 +23,8 @@ const App = () => {
                     options={({ navigation, route }) => ({
                         title: "",
                         headerStyle: {
-                            backgroundColor: "#21b0ff",
-                            height: windowHeight * 0.15,
+                            backgroundColor: "#74c9f7",
+                            height: windowHeight * 0.13,
                         },
                         headerTintColor: "#000",
                         headerTitleStyle: {
@@ -39,11 +37,11 @@ const App = () => {
                                         onPress={() => {
                                             navigation.navigate("Leaderboard");
                                         }}
-                                        style={{ marginRight: 10 }}
+                                        style={{ marginRight: "5%" }}
                                     >
                                         <FontAwesome5
                                             name="trophy"
-                                            size={24}
+                                            size={40}
                                             color="black"
                                         />
                                     </TouchableOpacity>
@@ -51,11 +49,11 @@ const App = () => {
                                         onPress={() => {
                                             navigation.navigate("Profile");
                                         }}
-                                        style={{ marginRight: 10 }}
+                                        style={{ marginRight: "5%" }}
                                     >
                                         <Ionicons
                                             name="person"
-                                            size={24}
+                                            size={40}
                                             color="black"
                                         />
                                     </TouchableOpacity>
@@ -75,9 +73,45 @@ const App = () => {
                 <Stack.Screen
                     name="Profile"
                     options={({ navigation, route }) => ({
-                        title: "Profile",
+                        title: "",
                         headerStyle: {
-                            backgroundColor: "#AEE2FF",
+                            backgroundColor: "#74c9f7",
+                            height: windowHeight * 0.13,
+                        },
+                        headerTintColor: "#000",
+                        headerTitleStyle: {
+                            fontWeight: "bold",
+                        },
+                        headerShadowVisible: false,
+                        headerBackImage: () => (
+                          <Ionicons style={{marginLeft: "5%",}} name="arrow-back" size={40} color="black"/>
+                        ),
+                        headerBackTitle: () => (
+                          <Text>" "</Text>
+                        ),
+                        headerRight: () => (
+                          <TouchableOpacity
+                              onPress={() => {
+                                  navigation.navigate("Settings");
+                              }}
+                              style={{ marginRight: "5%" }}
+                          >
+                              <Ionicons
+                                  name="cog"
+                                  size={40}
+                                  color="black"
+                              />
+                          </TouchableOpacity>
+                      ),
+                    })}
+                    component={ProfileScreen}
+                />
+                <Stack.Screen
+                    name="Settings"
+                    options={({ navigation, route }) => ({
+                        title: "Settings",
+                        headerStyle: {
+                            backgroundColor: "#74c9f7",
                             height: windowHeight * 0.15,
                         },
                         headerTintColor: "#000",
@@ -85,7 +119,7 @@ const App = () => {
                             fontWeight: "bold",
                         },
                     })}
-                    component={ProfileScreen}
+                    component={SettingsScreen}
                 />
                 <Stack.Screen
                     name="Leaderboard"
