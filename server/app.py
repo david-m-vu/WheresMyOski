@@ -11,11 +11,13 @@ sign_in_url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPass
 with open('config.json', 'r') as configfile:
     config_data = json.load(configfile)
 
+# test get method 
 @app.route("/")
 def home():
   result = firebase.get('/restaurants', None)
   return str(result)
 
+# test submit method 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
   if request.method == 'POST' and len(request.form) > 0:
@@ -27,6 +29,18 @@ def submit():
     return "Thank you!"
   else:
     return "Sorry, there was an error."
+
+# # post username method 
+# @app.route('/submit-username', methods=['GET', 'POST'])
+# def submit_username():
+#    if request.method == 'POST':
+#       userdata = dict(request.form)
+#       new_data = {"username": userdata["username"]}
+#       firebase.post("/Users", new_data)
+#       return "Success"
+#    else:
+#       return "Failed"
+
 
 @app.route("/signup", methods = ["GET", "POST"])
 def user_authentication():
@@ -40,10 +54,20 @@ def user_authentication():
         }
 
         result = requests.post(sign_up_url, data=payload)
+        
         return result.text
-        #return "deez"
     else:
-       return "wtf"
+       return "Sign up failed"
+
+@app.route("/store_email", methods = ["GET", "POST"])
+def store_email():
+    if request.method == "POST":
+        userdata = dict(request.form)
+        new_data = {"email": userdata['email'], "enable_alerts": 0, "name": "", "points": 0, "rank": 0}
+        firebase.post("/Users", new_data)
+        return "Success"
+    else:
+       return "Store failed"
     
 @app.route("/signin", methods = ["GET", "POST"])
 def user_signin():
@@ -59,7 +83,7 @@ def user_signin():
         result = requests.post(sign_in_url, data=payload)
         return result.text
    else:
-      return "wtf"
+      return "Sign in failed"
 
 if __name__ == "__main__":
   app.run()
