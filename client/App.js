@@ -14,7 +14,17 @@ const windowHeight = Dimensions.get('window').height;
 const App = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: "#f4511e",
+                    },
+                    headerTintColor: "#fff",
+                    headerTitleStyle: {
+                        fontWeight: "bold",
+                    },
+                }}
+            >
                 <Stack.Screen
                     name="Home"
                     options={({ navigation, route }) => ({
@@ -30,7 +40,7 @@ const App = () => {
                         headerRight: () => (
                             <TouchableOpacity
                                 onPress={() => {
-                                    navigation.navigate("Profile")
+                                    navigation.navigate("Profile");
                                 }}
                                 style={{ marginRight: 10 }}
                             >
@@ -42,7 +52,6 @@ const App = () => {
                             </TouchableOpacity>
                         ),
                     })}
-                    
                     component={HomePage}
                 />
                 <Stack.Screen
