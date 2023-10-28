@@ -1,38 +1,16 @@
 from flask import Flask, render_template, request
+#import pyrebase
 from firebase import firebase
-import requests  
-import json 
-import auth
+import requests
+import json
 
 app = Flask(__name__)
 firebase = firebase.FirebaseApplication('https://oskiproject-7240e-default-rtdb.firebaseio.com/', None)
 sign_up_url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?'
 sign_in_url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?'
-
 with open('config.json', 'r') as configfile:
-    config_data = json.load(config_file)
+    configdata = json.load(configfile)
 
-@app.route("/")
-def home():
-  result = firebase.get('/restaurants', None)
-  return str(result)
-
-@app.route('/submit', methods=['GET', 'POST'])
-def submit():
-  if request.method == 'POST' and len(request.form) > 0:
-    userdata = dict(request.form)
-    name = userdata["name"]
-    address = userdata["address"]
-    new_data = {"name": name, "address": address}
-    firebase.post("/restaurants", new_data)
-    return "Thank you!"
-  else:
-    return "Sorry, there was an error."
-
-@app.route("/")
-def home():
-  result = firebase.get('/restaraunt', None)
-  return str(result)
 
 @app.route("/signup", methods = ["GET", "POST"])
 def user_authentication():
@@ -66,7 +44,3 @@ def user_signin():
         return result.text
    else:
       return "wtf"
-
-if __name__ == "__main__":
-  app.run()
-
