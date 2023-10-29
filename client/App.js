@@ -8,6 +8,7 @@ import LeaderboardScreen from "./screens/Leaderboard/LeaderboardScreen.js"
 import { Dimensions } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome5 } from '@expo/vector-icons'; 
 import SettingsScreen from "./screens/Profile/SettingsScreen.js";
 import baseStyles from "./styles/baseStyles.js";
 

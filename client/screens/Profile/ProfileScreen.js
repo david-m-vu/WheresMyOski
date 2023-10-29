@@ -18,16 +18,6 @@ const ProfileScreen = () => {
         'Fuzzy Bubbles Regular': require('../../assets/fonts/FuzzyBubbles-Regular.ttf')
     });
 
-    const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-        await SplashScreen.hideAsync();
-    }
-    }, [fontsLoaded, fontError]);
-
-    if (!fontsLoaded && !fontError) {
-    return null;
-    }
-
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
