@@ -7,11 +7,14 @@ import datetime
 from Blueprints.authen import auth_bp
 from Blueprints.test import test_bp
 from Blueprints.feed import feed_bp
+from Blueprints.leaderboard import leaderboard_bp
 
 app = Flask(__name__)
 app.register_blueprint(auth_bp)
 app.register_blueprint(test_bp)
 app.register_blueprint(feed_bp)
+app.register_blueprint(leaderboard_bp)
+
 
 firebase = firebase.FirebaseApplication('https://oskiproject-7240e-default-rtdb.firebaseio.com/', None)
 sign_up_url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?'
