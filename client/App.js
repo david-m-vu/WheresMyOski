@@ -64,7 +64,7 @@ const App = () => {
                         headerLeft: () => (
                             <TouchableOpacity style={{ marginLeft: 10 }}>
                                 <Text style={baseStyles.headerText}>
-                                    Where's My Oski?
+                                    Where's Oski?
                                 </Text>
                             </TouchableOpacity>
                         ),
