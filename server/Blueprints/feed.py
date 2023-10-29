@@ -24,8 +24,15 @@ def init_feed():
     if request.method == "POST":
        newdata = {"numPosts": 0, "Posts": {"bananan": 1}}
        db.child("Feed").child("0").push(newdata)
-
        return "Success"
+    else:
+       return "Failed"
+    
+@feed_bp.route("/send-posts", methods = ["GET"])
+def get_posts():
+   if request.method == "GET":
+      posts = db.child("Posts").get()
+      return posts.val()
 
 @feed_bp.route("/create-post", methods = ["GET", "POST"])
 def create_post():
