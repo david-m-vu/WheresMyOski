@@ -50,7 +50,7 @@ const Post = (props) => {
             </View>
             <Image style={styles.postImage} source={{ uri: props.imageURI }} />
             <View style={styles.userInteractables}>
-                <Text style={styles.postText}>Is this Oski?</Text>
+                <Text style={styles.postText}>is this oski?</Text>
                 <View style={styles.voteButtons}>
                     <Text
                         style={determineVoteColor()}

@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         width: "100%",
+        backgroundColor: "#E4DCCF",
     },
     posts: {
         width: "100%"
