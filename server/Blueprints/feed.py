@@ -18,6 +18,30 @@ firebase1 = pyrebase.initialize_app(config_data)
 auth = firebase1.auth()
 db = firebase1.database()
 
+@feed_bp.route("/points_ranking", methods = ["GET", "POST"])
+def points():
+    if request.method == "GET":
+      users = db.child("/Users").get()
+
+      current_email = db.child("current_user").get()
+      current_email = current_email.val()[0]['email']
+
+      current_points = 0
+      unlocked = []
+      
+      for user in users.each():
+          if user.val()['email'] == current_email:
+            current_points = user.val()['points']
+      
+            current_points = int(current_points / 10)
+
+            for i in range(current_points):
+               user.val()['unlocked'][i + 2] = True
+
+            unlocked = user.val()['unlocked']
+
+      return unlocked
+
 # initialize feed 
 @feed_bp.route("/init_feed", methods = ["GET", "POST"])
 def init_feed():
