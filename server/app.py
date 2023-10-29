@@ -106,10 +106,29 @@ def init_feed():
 
        return "Success"
 
-@app.route("/points_ranking")
+@app.route("/points_ranking", methods = ["GET", "POST"])
 def points():
-    
-    return 0
+    if request.method == "GET":
+      users = db.child("/Users").get()
+
+      current_email = db.child("current_user").get()
+      current_email = current_email.val()[0]['email']
+
+      current_points = 0
+      unlocked = []
+      
+      for user in users.each():
+          if user.val()['email'] == current_email:
+            current_points = user.val()['points']
+      
+            current_points = int(current_points / 10)
+
+            for i in range(current_points):
+               user.val()['unlocked'][i + 2] = True
+
+            unlocked = user.val()['unlocked']
+
+      return unlocked
 
 # log out of current user 
 @app.route("/log-out", methods = ["GET", "POST", "DELETE"])
