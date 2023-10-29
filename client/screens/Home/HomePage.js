@@ -69,6 +69,20 @@ const HomePage = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+    HomePage: {},
+    HomePageContent: {
+        display: "flex",
+        alignItems: "center",
+        width: "100%",
+        backgroundColor: "#E4DCCF",
+    },
+    posts: {
+        width: "100%"
+    },
+    postsContainer: {
+        gap: 20,
+        alignItems: "center",
+    },
     homeUnselectedIcon: {
         width: 30,
         height: 30

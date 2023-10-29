@@ -22,7 +22,11 @@
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-asset": "^2.1.1",
+<<<<<<< HEAD
     "react-native-camera": "^4.2.1",
+=======
+    "react-native-maps": "1.7.1",
+>>>>>>> 70f28fe7a423419114051ad3799296c1fb9fa7ba
     "react-native-safe-area-context": "4.6.3",
     "react-native-screens": "~3.22.0",
     "react-navigation": "^5.0.0"

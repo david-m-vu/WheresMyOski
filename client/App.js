@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomePage from "./screens/Home/HomePage.js";
 import ProfileScreen from "./screens/Profile/ProfileScreen.js";
 import LeaderboardScreen from "./screens/Leaderboard/LeaderboardScreen.js"
+import CustomizeScreen from "./screens/Profile/CustomizeScreen.js"
 import { Dimensions } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -14,6 +15,15 @@ import baseStyles from "./styles/baseStyles.js";
 
 const Stack = createStackNavigator();
 const windowHeight = Dimensions.get("window").height;
+const titleImage = require("./assets/titlelogo_png.png");
+const backIcon = require("./assets/backarrow.png");
+const profileIcon = require("./assets/profile.png");
+const trophyIcon = require("./assets/trophy.png");
+const settingsIcon = require("./assets/settings.png");
+const logoIcon = require("./assets/logo_png.png");
+
+
+
 
 const App = () => {
     return (
@@ -40,11 +50,16 @@ const App = () => {
                                         }}
                                         style={{ marginRight: "5%" }}
                                     >
-                                    <FontAwesome5 
-                                      name="trophy" 
-                                      size={40} 
-                                      color="black" 
-                                    />
+                                      <Image
+                                          style={
+                                            {
+                                              height: 35,
+                                              width: 35,
+                                              zIndex: 4,
+                                            }
+                                          }
+                                          source={trophyIcon}
+                                      />
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         onPress={() => {
@@ -52,21 +67,45 @@ const App = () => {
                                         }}
                                         style={{ marginRight: "5%" }}
                                     >
-                                        <Ionicons
-                                            name="person"
-                                            size={40}
-                                            color="black"
-                                        />
+                                      <Image
+                                        style={
+                                          {
+                                            height: 35,
+                                            width: 35,
+                                            zIndex: 4,
+                                          }
+                                        }
+                                        source={profileIcon}
+                                      />
                                     </TouchableOpacity>
                                 </View>
                             );
                         },
                         headerLeft: () => (
-                            <TouchableOpacity style={{ marginLeft: 10 }}>
-                                <Text style={baseStyles.headerText}>
-                                    Where's Oski?
-                                </Text>
-                            </TouchableOpacity>
+                            <View style={{flexDirection: "row"}}>
+                              <Image
+                                style={
+                                  {
+                                    marginLeft: 10,
+                                    height: 40,
+                                    width: 40,
+                                    zIndex: 4,
+                                  }
+                                }
+                                source={logoIcon}
+                              />
+                              <Image
+                                style={
+                                  {
+                                    marginLeft: 6,
+                                    height: 35,
+                                    width: 160,
+                                    zIndex: 4,
+                                  }
+                                }
+                                source={titleImage}
+                              />
+                            </View>
                         ),
                     })}
                     component={HomePage}
@@ -85,7 +124,17 @@ const App = () => {
                         },
                         headerShadowVisible: false,
                         headerBackImage: () => (
-                          <Ionicons style={{marginLeft: "5%",}} name="arrow-back" size={40} color="black"/>
+                          <Image
+                              style={
+                                {
+                                  height: 40,
+                                  width: 40,
+                                  zIndex: 4,
+                                  marginLeft: 10,
+                                }
+                              }
+                              source={backIcon}
+                          />
                         ),
                         headerBackTitle: () => (
                           <Text>" "</Text>
@@ -97,11 +146,16 @@ const App = () => {
                               }}
                               style={{ marginRight: "5%" }}
                           >
-                              <Ionicons
-                                  name="cog"
-                                  size={40}
-                                  color="black"
-                              />
+                            <Image
+                              style={
+                                {
+                                  height: 40,
+                                  width: 40,
+                                  zIndex: 4,
+                                }
+                              }
+                              source={settingsIcon}
+                            />
                           </TouchableOpacity>
                       ),
                     })}
@@ -113,7 +167,7 @@ const App = () => {
                         title: "Settings",
                         headerStyle: {
                             backgroundColor: "#74c9f7",
-                            height: windowHeight * 0.15,
+                            height: windowHeight * 0.13,
                         },
                         headerTintColor: "#000",
                         headerTitleStyle: {
@@ -127,8 +181,8 @@ const App = () => {
                     options={({ navigation, route }) => ({
                         title: "Leaderboard",
                         headerStyle: {
-                            backgroundColor: "#AEE2FF",
-                            height: windowHeight * 0.15,
+                            backgroundColor: "#74c9f7",
+                            height: windowHeight * 0.13,
                         },
                         headerTintColor: "#000",
                         headerTitleStyle: {
@@ -136,6 +190,38 @@ const App = () => {
                         },
                     })}
                     component={LeaderboardScreen}
+                />
+                <Stack.Screen
+                    name="Customize"
+                    options={({ navigation, route }) => ({
+                        title: "",
+                        headerStyle: {
+                            backgroundColor: "#74c9f7",
+                            height: windowHeight * 0.13,
+                        },
+                        headerTintColor: "#000",
+                        headerTitleStyle: {
+                            fontWeight: "bold",
+                        },
+                        headerShadowVisible: false,
+                        headerBackImage: () => (
+                          <Image
+                            style={
+                              {
+                                height: 40,
+                                width: 40,
+                                zIndex: 4,
+                                marginLeft: 10,
+                              }
+                            }
+                            source={backIcon}
+                          />
+                        ),
+                        headerBackTitle: () => (
+                          <Text>" "</Text>
+                        ),
+                    })}
+                    component={CustomizeScreen}
                 />
             </Stack.Navigator>
         </NavigationContainer>
