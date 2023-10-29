@@ -18,6 +18,10 @@ const ProfileScreen = () => {
         'Fuzzy Bubbles Regular': require('../../assets/fonts/FuzzyBubbles-Regular.ttf')
     });
 
+    if (!fontsLoaded && !fontError) {
+    return null;
+    }
+
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />

@@ -40,11 +40,11 @@ const App = () => {
                                         }}
                                         style={{ marginRight: "5%" }}
                                     >
-                                        <FontAwesome5
-                                            name="trophy"
-                                            size={40}
-                                            color="black"
-                                        />
+                                    <FontAwesome5 
+                                      name="trophy" 
+                                      size={40} 
+                                      color="black" 
+                                    />
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         onPress={() => {
