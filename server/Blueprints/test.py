@@ -5,7 +5,7 @@ import pyrebase
 import json 
 import datetime
 
-test = Blueprint('test', __name__)
+test_bp = Blueprint('test', __name__)
 
 app = Flask(__name__)
 firebase = firebase.FirebaseApplication('https://oskiproject-7240e-default-rtdb.firebaseio.com/', None)
@@ -19,13 +19,13 @@ firebase1 = pyrebase.initialize_app(config_data)
 auth = firebase1.auth()
 db = firebase1.database()
 
-@app.route("/")
+@test_bp.route("/")
 def home():
   result = firebase.get('/restaurants', None)
   return str(result)
 
 # test post  
-@app.route('/submit', methods=['GET', 'POST'])
+@test_bp.route('/submit', methods=['GET', 'POST'])
 def submit():
   if request.method == 'POST' and len(request.form) > 0:
     userdata = dict(request.form)
