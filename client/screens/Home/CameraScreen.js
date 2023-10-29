@@ -7,7 +7,7 @@ const CameraScreen = () => {
     return (
         <View style={baseStyles.container}>
             <StatusBar style="auto" />
-            <Text>Camera</Text>
+            <Text>camera</Text>
         </View>
     );
 };
