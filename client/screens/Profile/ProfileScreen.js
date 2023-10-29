@@ -37,7 +37,7 @@ const ProfileScreen = ({navigation}) => {
             </View>
             <View style={styles.mainContent}>
                 <View style={styles.profileTextDiv}>
-                    <Text style={styles.profileText}>Vincent Myint</Text>
+                    <Text style={styles.profileText}>William Bui</Text>
                 </View>
                 <View style={styles.rankEncountersDiv}>
                     <View style={styles.rankEncounterSubDiv}>

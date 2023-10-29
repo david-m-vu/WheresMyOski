@@ -22,9 +22,6 @@ const trophyIcon = require("./assets/trophy.png");
 const settingsIcon = require("./assets/settings.png");
 const logoIcon = require("./assets/logo_png.png");
 
-
-
-
 const App = () => {
     return (
         <NavigationContainer>
@@ -164,7 +161,7 @@ const App = () => {
                 <Stack.Screen
                     name="Settings"
                     options={({ navigation, route }) => ({
-                        title: "Settings",
+                        title: "",
                         headerStyle: {
                             backgroundColor: "#74c9f7",
                             height: windowHeight * 0.13,
@@ -173,26 +170,27 @@ const App = () => {
                         headerTitleStyle: {
                             fontWeight: "bold",
                         },
+                        headerBackImage: () => (
+                          <Image
+                              style={
+                                {
+                                  height: 40,
+                                  width: 40,
+                                  zIndex: 4,
+                                  marginLeft: 10,
+                                }
+                              }
+                              source={backIcon}
+                          />
+                        ),
+                        headerBackTitle: () => (
+                          <Text>" "</Text>
+                        ),
                     })}
                     component={SettingsScreen}
                 />
                 <Stack.Screen
                     name="Leaderboard"
-                    options={({ navigation, route }) => ({
-                        title: "Leaderboard",
-                        headerStyle: {
-                            backgroundColor: "#74c9f7",
-                            height: windowHeight * 0.13,
-                        },
-                        headerTintColor: "#000",
-                        headerTitleStyle: {
-                            fontWeight: "bold",
-                        },
-                    })}
-                    component={LeaderboardScreen}
-                />
-                <Stack.Screen
-                    name="Customize"
                     options={({ navigation, route }) => ({
                         title: "",
                         headerStyle: {
@@ -202,6 +200,44 @@ const App = () => {
                         headerTintColor: "#000",
                         headerTitleStyle: {
                             fontWeight: "bold",
+                        },
+                        headerBackImage: () => (
+                          <Image
+                            style={
+                              {
+                                height: 40,
+                                width: 40,
+                                zIndex: 4,
+                                marginLeft: 10,
+                              }
+                            }
+                            source={backIcon}
+                          />
+                        ),
+                        headerBackTitle: () => (
+                          <Text>" "</Text>
+                        ),
+                    })}
+                    component={LeaderboardScreen}
+                />
+                <Stack.Screen
+                    name="Customize"
+                    options={({ navigation, route }) => ({
+                        title: "customize oski",
+                        headerStyle: {
+                            backgroundColor: "#74c9f7",
+                            height: windowHeight * 0.13,
+                        },
+                        headerTintColor: "#000",
+                        headerTitleStyle: {
+                          color: "black",
+                          fontSize: 25,
+                          fontWeight: "600",
+                          paddingTop: 5,
+                          paddingBottom: 5,
+                          paddingLeft: 7,
+                          paddingRight: 7,
+                          fontFamily: "Fuzzy Bubbles Bold",
                         },
                         headerShadowVisible: false,
                         headerBackImage: () => (

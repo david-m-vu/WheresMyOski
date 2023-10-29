@@ -48,7 +48,7 @@ const testPosts = [
         id: 3,
         userName: "William",
         profileImageURI: williamProfileImage,
-        location: "Sather Gate",
+        location: "Haas Pavilion",
         time: "9:30 AM",
         date: "Aug 29",
         imageURI: williamPostImage,

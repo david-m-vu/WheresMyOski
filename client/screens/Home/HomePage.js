@@ -45,7 +45,7 @@ const HomePage = ({ navigation }) => {
                         backgroundColor: "#74c9f7",
                     },
                     tabBarIcon: ({ color, size }) => (
-                        <Image source={cameraIcon} style={styles.homeUnselectedIcon}/>
+                        <Image source={cameraIcon} style={styles.cameraIcon}/>
                       ),
                 })}
             />
@@ -84,8 +84,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     homeUnselectedIcon: {
-        width: 30,
-        height: 30
+        width: 45,
+        height: 45,
+    },
+    cameraIcon: {
+        marginTop: 3,
+        width: 60,
+        height: 60,
     }
 })
 

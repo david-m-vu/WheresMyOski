@@ -6,6 +6,11 @@ import { useFonts } from 'expo-font';
 import { AntDesign } from "@expo/vector-icons";
 
 const Post = (props) => {
+    const upvoteNotSelect = require("../assets/uparrowempty.png")
+    const upvoteSelect = require("../assets/uparrowfilled.png")
+    const downvoteNotSelect = require("../assets/downarrowempty.png")
+    const downvoteSelect = require("../assets/downarrowfilled.png")
+
     const [fontsLoaded, fontError] = useFonts({
         'Indie Flower': require('../assets/fonts/IndieFlower-Regular.ttf'),
         'Fuzzy Bubbles Bold': require('../assets/fonts/FuzzyBubbles-Bold.ttf'),
@@ -48,13 +53,19 @@ const Post = (props) => {
             </View>
             <Image style={styles.postImage} source={{ uri: props.imageURI }} />
             <View style={styles.userInteractables}>
-                <Text style={styles.postText}>is this oski?</Text>
+                <Text style={styles.questionText}>is this oski?</Text>
                 <View style={styles.voteButtons}>
                     <Text
                         style={determineVoteColor()}
                     >{`${calculateVotePercentage().toFixed(2)}%`}</Text>
-                    <AntDesign name="arrowdown" size={24} color="black" />
-                    <AntDesign name="arrowup" size={24} color="black" />
+                    <Image
+                        style={styles.arrowIcon}
+                        source={downvoteNotSelect}
+                    />
+                    <Image
+                        style={styles.arrowIcon}
+                        source={upvoteNotSelect}
+                    />                
                 </View>
             </View>
         </View>
@@ -134,6 +145,7 @@ const styles = StyleSheet.create({
         fontFamily: "Fuzzy Bubbles Bold",
     },
     questionText: {
+        fontFamily: "Fuzzy Bubbles Bold",
         fontSize: 24,
     },
     subText: {
@@ -141,6 +153,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: "#4d4d4d",
     },
+    arrowIcon: {
+        height: 27,
+        width: 22,
+    }
 });
 
 export default Post;
