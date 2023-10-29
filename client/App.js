@@ -9,9 +9,10 @@ import CustomizeScreen from "./screens/Profile/CustomizeScreen.js"
 import { Dimensions } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome5 } from '@expo/vector-icons'; 
 import SettingsScreen from "./screens/Profile/SettingsScreen.js";
 import baseStyles from "./styles/baseStyles.js";
-import { FontAwesome5 } from '@expo/vector-icons';
+
 const Stack = createStackNavigator();
 const windowHeight = Dimensions.get("window").height;
 const titleImage = require("./assets/titlelogo_png.png");

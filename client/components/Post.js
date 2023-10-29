@@ -3,8 +3,6 @@ import { StatusBar } from "expo-status-bar";
 import { Text, View, Image } from "react-native";
 import { StyleSheet } from "react-native";
 import { useFonts } from 'expo-font';
-
-
 import { AntDesign } from "@expo/vector-icons";
 
 const Post = (props) => {
@@ -41,11 +39,11 @@ const Post = (props) => {
                         />
                         <Text style={styles.userName}>{props.userName}</Text>
                     </View>
-                    <Text style={styles.postText2}>{props.location}</Text>
+                    <Text style={styles.subText}>{props.location}</Text>
                 </View>
                 <View style={styles.dateTime}>
-                    <Text style={styles.postText}>{props.time}</Text>
-                    <Text style={styles.postText2}>{props.date}</Text>
+                    <Text style={styles.timeText}>{props.time}</Text>
+                    <Text style={styles.subText}>{props.date}</Text>
                 </View>
             </View>
             <Image style={styles.postImage} source={{ uri: props.imageURI }} />
@@ -131,11 +129,14 @@ const styles = StyleSheet.create({
         fontWeight: 500,
         fontFamily: "Fuzzy Bubbles Bold",
     },
-    postText: {
+    timeText: {
         fontSize: 24,
         fontFamily: "Fuzzy Bubbles Bold",
     },
-    postText2: {
+    questionText: {
+        fontSize: 24,
+    },
+    subText: {
         fontFamily: "Fuzzy Bubbles Bold",
         fontSize: 20,
         color: "#4d4d4d",
