@@ -9,7 +9,7 @@ import { useFonts } from 'expo-font';
 
 
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
     const beartest = require("../../assets/beartest.png")
 
     const [fontsLoaded, fontError] = useFonts({
@@ -56,7 +56,12 @@ const ProfileScreen = () => {
                     </View>
                 </View>
                 <View style={styles.customizeButtonDiv}>
-                <Pressable style={styles.customizeButton}>
+                <Pressable style={
+                    styles.customizeButton} 
+                    onPress={() => {
+                        navigation.navigate("Customize");
+                    }
+                }>
                     <Text style={styles.buttonText}>edit my oski</Text>
                 </Pressable>
                 </View>
