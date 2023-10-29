@@ -2,6 +2,8 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { Text, View, Image } from "react-native";
 import { StyleSheet } from "react-native";
+import { useFonts } from 'expo-font';
+
 
 import { AntDesign } from "@expo/vector-icons";
 
@@ -11,12 +13,6 @@ const Post = (props) => {
         'Fuzzy Bubbles Bold': require('../assets/fonts/FuzzyBubbles-Bold.ttf'),
         'Fuzzy Bubbles Regular': require('../assets/fonts/FuzzyBubbles-Regular.ttf')
     });
-
-    const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-        await SplashScreen.hideAsync();
-    }
-    }, [fontsLoaded, fontError]);
 
     if (!fontsLoaded && !fontError) {
         return null;
@@ -120,10 +116,12 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     votePercentageGreen: {
+        fontFamily: "Fuzzy Bubbles Bold",
         fontSize: 24,
         color: "#3ede41",
     },
     votePercentageRed: {
+        fontFamily: "Fuzzy Bubbles Bold",
         fontSize: 24,
         color: "#eb3443",
     },
@@ -131,12 +129,14 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         fontSize: 24,
         fontWeight: 500,
+        fontFamily: "Fuzzy Bubbles Bold",
     },
     postText: {
         fontSize: 24,
         fontFamily: "Fuzzy Bubbles Bold",
     },
     postText2: {
+        fontFamily: "Fuzzy Bubbles Bold",
         fontSize: 20,
         color: "#4d4d4d",
     },

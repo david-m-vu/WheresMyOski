@@ -10,7 +10,7 @@ import { Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import SettingsScreen from "./screens/Profile/SettingsScreen.js";
 import baseStyles from "./styles/baseStyles.js";
-
+import { FontAwesome5 } from '@expo/vector-icons';
 const Stack = createStackNavigator();
 const windowHeight = Dimensions.get("window").height;
 
@@ -39,11 +39,11 @@ const App = () => {
                                         }}
                                         style={{ marginRight: "5%" }}
                                     >
-                                        <FontAwesome5
-                                            name="trophy"
-                                            size={40}
-                                            color="black"
-                                        />
+                                    <FontAwesome5 
+                                      name="trophy" 
+                                      size={40} 
+                                      color="black" 
+                                    />
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         onPress={() => {
