@@ -17,6 +17,7 @@ def home():
   result = firebase.get('/restaurants', None)
   return str(result)
 
+<<<<<<< Updated upstream
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
   if request.method == 'POST' and len(request.form) > 0:
@@ -36,6 +37,23 @@ def home():
 
 @app.route("/signup", methods = ["GET", "POST"])
 def user_authentication():
+=======
+# store email endpoint
+@app.route("/store_current_user", methods = ["GET", "POST"])
+def store_email():
+    if request.method == "POST":
+         userdata = dict(request.form)
+         new_data = {"upvoted_posts": {}, "downvoted_posts": {}, "email": userdata['email'], "enable_alerts": 0, "name": "", "points": 0, "rank": 0, "unlocked": [True, True, False, False, False, False, False, False, False, False]}
+         result = db.child("Users").push(new_data)
+         #db.child("current_user").child("0").set({"email": userdata['email']})
+         return result["name"]
+    else:
+        return "Store failed"
+    
+# update username endpoint
+@app.route("/update_username", methods = ["GET", "POST"])
+def update_username():
+>>>>>>> Stashed changes
     if request.method == "POST":
         userdata = dict(request.form)
         payload = {
